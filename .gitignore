@@ -1,12 +1,24 @@
+# IDE Folder
+.vscode
+.idea/
+
+# Build
 /output/
 /build/artifacts/
 build/device/**/*.pyc
 epsilon.elf
 epsilon.map
-.vscode
-.DS_Store
-.gradle
-.idea/
-.vs
 .cache/
 compile_commands.json
+
+# Hidden random files
+.DS_Store
+.gradle
+.vs
+
+# Null
+null/
+
+# Env
+.venv/
+.env/
