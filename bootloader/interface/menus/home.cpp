@@ -85,7 +85,7 @@ const char * Bootloader::HomeMenu::getKernelText(Slot slot) {
 }
 
 const char * Bootloader::HomeMenu::getVersionText(Slot slot) {
-  return Slot::isFullyValid(slot) ? slot.userlandHeader()->isOmega() && slot.userlandHeader()->isUpsilon() ? slot.userlandHeader()->upsilonVersion() : slot.userlandHeader()->isOmega() ? slot.userlandHeader()->omegaVersion() : slot.kernelHeader()->version() : nullptr;
+  return Slot::isFullyValid(slot) ? slot.userlandHeader()->isOmega() && slot.userlandHeader()->isUpsilon() && slot.userlandHeader()->isMu() ? slot.userlandHeader()->muVersion() :  slot.userlandHeader()->isOmega() && slot.userlandHeader()->isUpsilon() ? slot.userlandHeader()->upsilonVersion() : slot.userlandHeader()->isOmega() ? slot.userlandHeader()->omegaVersion() : slot.kernelHeader()->version() : nullptr;
 }
 
 void Bootloader::HomeMenu::setup() {

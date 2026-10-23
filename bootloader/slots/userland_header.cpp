@@ -32,6 +32,14 @@ const char * UserlandHeader::upsilonVersion() const {
   return m_UpsilonVersion;
 }
 
+const bool UserlandHeader::isMu() const {
+  return m_muMagicHeader == MuMagic && m_muMagicFooter == MuMagic;
+}
+
+const char * UserlandHeader::muVersion() const {
+  return m_MuVersion;
+}
+
 const void * UserlandHeader::storageAddress() const {
   return m_storageAddressRAM;
 }
