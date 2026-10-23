@@ -11,6 +11,7 @@ mkdir -p themes/local/$1/apps
 mkdir -p themes/local/$1/probability
 dir=./themes/local/$1
 
+export GDK_BACKEND=headless
 
 #Checks if jq is installed then assigns returned variables to $k or uses command line args
 if [ $(which jq | wc -l) -ge 1 ]; then
