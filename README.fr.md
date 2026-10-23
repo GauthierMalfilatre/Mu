@@ -1,4 +1,4 @@
-<p align="center"><img src="https://github.com/TildeEthDoUsPart/UpsilonDesign/blob/89a15953ae128aef8aa7d066dcaaf8d5c70f02a5/UPSILogo.png" /></p>
+<p align="center"><img src="./.github/assets/banner.png" alt="Mu" /></p>
 
 <p align="center">
   <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="cc by-nc-sa 4.0" src="https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-525252.svg?labelColor=292929&logo=creative%20commons&style=for-the-badge" /></a>
@@ -11,7 +11,9 @@
 
 ## À propos
 
-Upsilon est un fork d'Omega, un fork d'Epsilon, l'OS de NumWorks tournant sur les calculatrices du même nom, qui apporte beaucoup de fonctionnalités en plus, mais qui fut archivé et fermé pour des raisons légales après un changement de politique de NumWorks. Upsilon est fait pour ceux qui aimeraient voir un futur pour les OS créés par les utilisateurs pour NumWorks, même après l'arrêt du projet initial.
+Mu est un fork d'[Upsilon](https://github.com/UpsilonNumworks/Upsilon), lui-même un fork d'Omega, un OS créé par des utilisateurs pour les calculatrices NumWorks. Omega a été arrêté après un changement de politique de NumWorks, et Upsilon a pris le relais. Mu poursuit ce travail pour ceux qui veulent continuer à voir des OS créés par les utilisateurs pour NumWorks.
+
+Mu est réalisé par Gauthier Malfilatre et Eliott Damagnez.
 
 ### Quelques fonctionnalités supplémentaires
 
@@ -492,7 +494,7 @@ Les anciens projets d'Omega, avant sa fermeture, qui ont été utilisés pour ce
 
 ## À propos d'Epsilon
 
-Upsilon est un fork d'Omega, visant a continuer le projet des OS utilisateurs pour NumWorks.
+Mu est un fork d'Upsilon, lui-même un fork d'Omega.
 
 Omega est un fork d'Epsilon, un système d'exploitation performant pour calculatrices graphiques. Il inclut huit applications pour les mathématiques de lycée et d'études supérieures.
 
@@ -506,4 +508,4 @@ NumWorks SAS et Nintendo of America Inc ne sont en aucun cas associés avec ce p
 
 - NumWorks Epsilon est disponible sous [licence CC BY-NC-SA](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.fr).
 - Omega est disponible sous [licence CC BY-NC-SA](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.fr).
-- Upsilon est disponible sous [licence CC BY-NC-SA](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.fr).
+- Mu et Upsilon sont disponibles sous [licence CC BY-NC-SA](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.fr).

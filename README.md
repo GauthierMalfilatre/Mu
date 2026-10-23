@@ -1,4 +1,4 @@
-<p align="center"><img src="https://github.com/TildeEthDoUsPart/UpsilonDesign/blob/89a15953ae128aef8aa7d066dcaaf8d5c70f02a5/UPSILogo.png" /></p>
+<p align="center"><img src="./.github/assets/banner.png" alt="Mu" /></p>
 
 <p align="center">
   <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="cc by-nc-sa 4.0" src="https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-525252.svg?labelColor=292929&logo=creative%20commons&style=for-the-badge" /></a>
@@ -11,7 +11,9 @@
 
 ## About
 
-Upsilon is a fork of Omega, an user-made OS that runs on the NumWorks calculator, which brings many features to it, but was discontinued because of a policy change from NumWorks. Upsilon is for the people who want to see a future for user-made OSes for NumWorks, even after the closure and archiving of Omega.
+Mu is a fork of [Upsilon](https://github.com/UpsilonNumworks/Upsilon), itself a fork of Omega, a user-made OS for the NumWorks calculator. Omega was discontinued because of a policy change from NumWorks, and Upsilon carried it on. Mu continues that work for the people who want to keep seeing user-made OSes for NumWorks.
+
+Mu is made by Gauthier Malfilatre and Eliott Damagnez.
 
 ### Some new features
 
@@ -516,7 +518,7 @@ Here are the main links toward Omega's different websites and repositories, that
 
 ## About Epsilon
 
-Upsilon is a fork of Omega, after the project's discontinuation.
+Mu is a fork of Upsilon, which is a fork of Omega.
 
 Omega is a fork of Epsilon, a high-performance graphing calculator operating system. It includes eight apps that cover the high school mathematics curriculum.
 
@@ -531,4 +533,4 @@ NumWorks SAS, Nintendo of America Inc and Casio aren't associated in any shape o
 
 - NumWorks Epsilon is released under a [CC BY-NC-SA License](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode).
 - Omega is released under a [CC BY-NC-SA License](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode).
-- Upsilon is released under a [CC BY-NC-SA License](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode).
+- Mu and Upsilon are released under a [CC BY-NC-SA License](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode).
