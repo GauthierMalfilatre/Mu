@@ -1,6 +1,7 @@
 #ifndef BOOTLOADER_SLOTS_USERLAND_HEADER_H
 #define BOOTLOADER_SLOTS_USERLAND_HEADER_H
 
+#include <cstdint>
 #include <stdint.h>
 #include <stdbool.h>
 #include <stddef.h>
@@ -15,6 +16,8 @@ public:
   const char * omegaVersion() const;
   const bool isUpsilon() const;
   const char * upsilonVersion() const;
+  const bool isMu() const;
+  const char * muVersion() const;
   const void * storageAddress() const;
   const size_t storageSize() const;
   const bool hasUpsilonExtras() const;
@@ -28,6 +31,7 @@ private:
   constexpr static uint32_t OmegaMagic = 0xEFBEADDE;
   constexpr static uint32_t UpsilonMagic = 0x55707369;
   constexpr static uint32_t UpsilonExtraMagic = 0xaa7073ff;
+  constexpr static uint32_t MuMagic = 0x7e008d67;
   uint32_t m_header;
   const char m_expectedEpsilonVersion[8];
   void * m_storageAddressRAM;
@@ -47,6 +51,9 @@ private:
   const char m_UpsilonVersion[16];
   uint32_t m_osType;
   uint32_t m_upsilonMagicFooter;
+  uint32_t m_muMagicHeader;
+  const char m_MuVersion[16];
+  uint32_t m_muMagicFooter;
   uint32_t m_upsilonExtraMagicHeader;
   const void (*m_recoveryAddress)();
   uint32_t m_extraVersion;

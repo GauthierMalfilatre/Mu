@@ -1,3 +1,4 @@
+#include <cstdint>
 #include <ion.h>
 #include <assert.h>
 
@@ -46,7 +47,10 @@ public:
     m_upsilonMagicHeader(UpsilonMagic),
     m_UpsilonVersion{UPSILON_VERSION},
     m_osType(OSType),
-    m_upsilonMagicFooter(UpsilonMagic) { }
+    m_upsilonMagicFooter(UpsilonMagic),
+    m_muMagicHeader(MuMagic),
+    m_MuVersion{MU_VERSION},
+    m_muMagicFooter(MuMagic) { }
   const char * version() const {
     assert(m_storageAddress != nullptr);
     assert(m_storageSize != 0);
@@ -55,6 +59,17 @@ public:
     assert(m_omegaMagicHeader == OmegaMagic);
     assert(m_omegaMagicFooter == OmegaMagic);
     return m_version;
+  }
+  const char * muVersion() const {
+    assert(m_storageAddress != nullptr);
+    assert(m_storageSize != 0);
+    assert(m_header == Magic);
+    assert(m_footer == Magic);
+    assert(m_omegaMagicHeader == OmegaMagic);
+    assert(m_omegaMagicFooter == OmegaMagic);
+    assert(m_muMagicHeader == MuMagic);
+    assert(m_muMagicFooter == MuMagic);
+    return m_MuVersion;
   }
   const char * upsilonVersion() const {
     assert(m_storageAddress != nullptr);
@@ -99,6 +114,7 @@ private:
   constexpr static uint32_t Magic = 0xDEC00DF0;
   constexpr static uint32_t OmegaMagic = 0xEFBEADDE;
   constexpr static uint32_t UpsilonMagic = 0x55707369;
+  constexpr static uint32_t MuMagic = 0x7e008d67;
   constexpr static uint32_t OSType = 0x79827178;
   uint32_t m_header;
   const char m_version[8];
@@ -114,6 +130,9 @@ private:
   const char m_UpsilonVersion[16];
   uint32_t m_osType;
   uint32_t m_upsilonMagicFooter;
+  uint32_t m_muMagicHeader;
+  const char m_MuVersion[16];
+  uint32_t m_muMagicFooter;
 
 };
 
@@ -121,6 +140,10 @@ const PlatformInfo HEADER_SECTION platform_infos;
 
 const char * Ion::softwareVersion() {
   return platform_infos.version();
+}
+
+const char * Ion::muVersion() {
+  return platform_infos.muVersion();
 }
 
 const char * Ion::upsilonVersion() {
