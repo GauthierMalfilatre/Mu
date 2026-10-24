@@ -537,6 +537,7 @@ Q(colormode)
 Q(mu)
 Q(key_watch)
 Q(key_unwatch)
+Q(key_update)
 
 // utime QSTRs
 Q(localtime)
