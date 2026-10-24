@@ -15,3 +15,8 @@ mp_obj_t modmu_key_watch(mp_obj_t key) {
     _kb_state.watch(key);
     return mp_const_none;
 }
+
+mp_obj_t modmu_key_unwatch(mp_obj_t key) {
+    _kb_state.unwatch(key);
+    return mp_const_none;
+}
