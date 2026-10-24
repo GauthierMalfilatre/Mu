@@ -535,11 +535,13 @@ Q(colormode)
 
 // mu QSTRs
 Q(mu)
-Q(key_watch)
-Q(key_unwatch)
-Q(key_update)
-Q(key_release)
-Q(key_press)
+Q(mu.keyboard)
+Q(keyboard)
+Q(watch)
+Q(unwatch)
+Q(update)
+Q(release)
+Q(press)
 
 // utime QSTRs
 Q(localtime)
