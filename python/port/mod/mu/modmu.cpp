@@ -25,3 +25,11 @@ mp_obj_t modmu_key_update() {
     _kb_state.update();
     return mp_const_none;
 }
+
+mp_obj_t modmu_key_press(mp_obj_t key) {
+    return mp_obj_new_bool(_kb_state.isPress(key));
+}
+
+mp_obj_t modmu_key_release(mp_obj_t key) {
+    return mp_obj_new_bool(_kb_state.isRelease(key));
+}

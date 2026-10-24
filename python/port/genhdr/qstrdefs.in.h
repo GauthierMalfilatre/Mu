@@ -538,6 +538,8 @@ Q(mu)
 Q(key_watch)
 Q(key_unwatch)
 Q(key_update)
+Q(key_release)
+Q(key_press)
 
 // utime QSTRs
 Q(localtime)
