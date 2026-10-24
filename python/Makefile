@@ -166,6 +166,8 @@ port_src += $(addprefix python/port/,\
   mod/turtle/modturtle.cpp \
   mod/turtle/modturtle_table.c \
   mod/turtle/turtle.cpp \
+  mod/mu/modmu.cpp \
+  mod/mu/modmu_table.c \
   mphalport.c \
 )
 

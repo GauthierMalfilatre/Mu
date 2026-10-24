@@ -533,6 +533,10 @@ Q(ht)
 Q(isvisible)
 Q(colormode)
 
+// mu QSTRs
+Q(mu)
+Q(key_watch)
+
 // utime QSTRs
 Q(localtime)
 Q(mktime)

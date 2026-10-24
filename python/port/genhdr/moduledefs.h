@@ -65,6 +65,10 @@ extern const struct _mp_obj_module_t modturtle_module;
 #undef MODULE_DEF_MP_QSTR_TURTLE
 #define MODULE_DEF_MP_QSTR_TURTLE { MP_ROM_QSTR(MP_QSTR_turtle), MP_ROM_PTR(&modturtle_module) },
 
+extern const struct _mp_obj_module_t modmu_module;
+#undef MODULE_DEF_MP_QSTR_MU
+#define MODULE_DEF_MP_QSTR_MU { MP_ROM_QSTR(MP_QSTR_mu), MP_ROM_PTR(&modmu_module) },
+
 #if !defined(INCLUDE_ULAB)
 
 #define MICROPY_REGISTERED_MODULES \
@@ -80,7 +84,8 @@ extern const struct _mp_obj_module_t modturtle_module;
     MODULE_DEF_MP_QSTR_MATPLOTLIB \
     MODULE_DEF_MP_QSTR_TIME \
     MODULE_DEF_MP_QSTR_OS \
-    MODULE_DEF_MP_QSTR_TURTLE
+    MODULE_DEF_MP_QSTR_TURTLE \
+    MODULE_DEF_MP_QSTR_MU
 #else
 extern const struct _mp_obj_module_t ulab_user_cmodule;
 #undef MODULE_DEF_MP_QSTR_ULAB
@@ -100,6 +105,7 @@ extern const struct _mp_obj_module_t ulab_user_cmodule;
     MODULE_DEF_MP_QSTR_TIME \
     MODULE_DEF_MP_QSTR_OS \
     MODULE_DEF_MP_QSTR_TURTLE \
+    MODULE_DEF_MP_QSTR_MU \
     MODULE_DEF_MP_QSTR_ULAB
 #endif
 // MICROPY_REGISTERED_MODULES
