@@ -1,9 +1,8 @@
 #ifndef PYTHON_PORT_MOD_MU_KEYS_HPP
     #define PYTHON_PORT_MOD_MU_KEYS_HPP
     #include "ion/keyboard.h"
-#include "layout_keyboard.h"
-#include "py/obj.h"
-#include <cstddef>
+    #include "layout_keyboard.h"
+    #include "py/obj.h"
 
 class KeyStates {
     public:
