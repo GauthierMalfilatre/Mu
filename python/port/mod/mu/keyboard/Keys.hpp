@@ -3,7 +3,7 @@
     #include "ion/keyboard.h"
     #include "layout_keyboard.h"
     #include "py/obj.h"
-#include <cstdint>
+    #include <cstdint>
 
 class KeyStates {
     public:
@@ -14,11 +14,11 @@ class KeyStates {
             m_now = Ion::Keyboard::scan();
         }
 
-        bool isPress(mp_obj_t key) {
+        bool isPress(mp_obj_t key) const {
             return (uint64_t(m_now) & ~uint64_t(m_last) & bit(key)) != 0;
         }
 
-        bool isRelease(mp_obj_t key) {
+        bool isRelease(mp_obj_t key) const {
             return (~(uint64_t)m_now & (uint64_t)m_last & bit(key)) != 0;
         }
 
@@ -27,7 +27,7 @@ class KeyStates {
             static uint64_t bit(mp_obj_t key) {
                 mp_int_t k = mp_obj_get_int(key);
                 if (k < 0 || k > 63) {
-                    assert(1 == 0);
+                    return 1ULL;
                 }
                 return 1ULL << k;
             }
