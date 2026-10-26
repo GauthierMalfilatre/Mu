@@ -11,16 +11,6 @@ mp_obj_t modmu_keyboard___init__() {
     return mp_const_none;
 }
 
-mp_obj_t modmu_keyboard_watch(mp_obj_t key) {
-    _kb_state.watch(key);
-    return mp_const_none;
-}
-
-mp_obj_t modmu_keyboard_unwatch(mp_obj_t key) {
-    _kb_state.unwatch(key);
-    return mp_const_none;
-}
-
 mp_obj_t modmu_keyboard_update() {
     _kb_state.update();
     return mp_const_none;
