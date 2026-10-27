@@ -541,6 +541,8 @@ Q(update)
 Q(release)
 Q(press)
 
+Q(Scene)
+Q(mark_dirty)
 Q(App)
 Q(run)
 
