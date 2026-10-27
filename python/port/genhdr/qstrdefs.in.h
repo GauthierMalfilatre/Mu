@@ -541,6 +541,9 @@ Q(update)
 Q(release)
 Q(press)
 
+Q(App)
+Q(run)
+
 // utime QSTRs
 Q(localtime)
 Q(mktime)
