@@ -543,6 +543,9 @@ Q(press)
 
 Q(App)
 Q(run)
+Q(scenes)
+Q(keyboard)
+Q(events)
 
 Q(Scene)
 Q(mark_dirty)
