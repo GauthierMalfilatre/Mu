@@ -1,8 +1,8 @@
 #include "modmu_scenemgr.h"
 #include "py/obj.h"
 
-static MP_DEFINE_CONST_FUN_OBJ_VAR_BETWEEN(modmu_scenemgr_push_obj, 1, 2, modmu_scenemgr_push);
-static MP_DEFINE_CONST_FUN_OBJ_VAR_BETWEEN(modmu_scenemgr_pop_obj, 1, 2, modmu_scenemgr_pop);
+static MP_DEFINE_CONST_FUN_OBJ_VAR_BETWEEN(modmu_scenemgr_push_obj, 2, 3, modmu_scenemgr_push);
+static MP_DEFINE_CONST_FUN_OBJ_VAR_BETWEEN(modmu_scenemgr_pop_obj, 2, 3, modmu_scenemgr_pop);
 static MP_DEFINE_CONST_FUN_OBJ_1(modmu_scenemgr_current_obj, modmu_scenemgr_current);
 
 static const mp_rom_map_elem_t modmu_scenemgr_globals_table[] = {

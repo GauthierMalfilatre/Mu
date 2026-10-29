@@ -25,7 +25,7 @@ mp_obj_t modmu_scenemgr_make_new(
 
     modmu_scenemgr_obj_t *thus = mp_obj_malloc(modmu_scenemgr_obj_t, type);
     thus->stack = mp_obj_new_list(0, NULL);
-    return mp_const_none;
+    return MP_OBJ_FROM_PTR(thus);
 }
 
 mp_obj_t modmu_scenemgr_push(
@@ -43,7 +43,7 @@ mp_obj_t modmu_scenemgr_push(
     mp_obj_t dest[3];
     mp_load_method(scene, MP_QSTR_on_start, dest);
     dest[2] = ctx;
-    mp_call_method_n_kw(2, 0, dest);
+    mp_call_method_n_kw(1, 0, dest);
 
     return MP_OBJ_FROM_PTR(scene);
 }
@@ -63,7 +63,7 @@ mp_obj_t modmu_scenemgr_pop(
     mp_obj_t dest_[3];
     mp_load_method(scene, MP_QSTR_on_dispose, dest);
     dest_[2] = ctx;
-    mp_call_method_n_kw(2, 0, dest_);
+    mp_call_method_n_kw(1, 0, dest_);
 
     return scene;
 }
