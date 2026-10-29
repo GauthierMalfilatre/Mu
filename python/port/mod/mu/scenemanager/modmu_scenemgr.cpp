@@ -1,11 +1,8 @@
 #include "py/qstr.h"
-#include <cstddef>
 extern "C" {
-    #include "py/objlist.h"
     #include "py/runtime.h"
     #include "modmu_scenemgr.h"
     #include <py/obj.h>
-    #include "../scenes/modmu_scene.h"
 }
 
 typedef struct modmu_scene_obj_s modmu_scene_obj_t;

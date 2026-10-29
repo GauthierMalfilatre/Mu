@@ -554,6 +554,8 @@ Q(mark_clean)
 
 Q(SceneManager)
 Q(push)
+Q(pop)
+Q(current)
 
 // utime QSTRs
 Q(localtime)
