@@ -175,6 +175,9 @@ port_src += $(addprefix python/port/,\
   mod/mu/scenes/modmu_scene.cpp \
   mod/mu/scenes/modmu_scene_table.c \
   \
+  mod/mu/scenemanager/modmu_scenemgr.cpp \
+  mod/mu/scenemanager/modmu_scenemgr_table.c \
+  \
   mod/mu/keyboard/modmu_keyboard.cpp \
   mod/mu/keyboard/modmu_keyboard_table.c \
   mphalport.c \

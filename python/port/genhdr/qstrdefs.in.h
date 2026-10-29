@@ -541,10 +541,19 @@ Q(update)
 Q(release)
 Q(press)
 
-Q(Scene)
-Q(mark_dirty)
 Q(App)
 Q(run)
+
+Q(Scene)
+Q(mark_dirty)
+Q(on_start)
+Q(on_dispose)
+Q(update)
+Q(render)
+Q(mark_clean)
+
+Q(SceneManager)
+Q(push)
 
 // utime QSTRs
 Q(localtime)
