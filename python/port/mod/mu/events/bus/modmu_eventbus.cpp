@@ -1,4 +1,3 @@
-#include <cstddef>
 extern "C" {
     #include "py/runtime.h"
     #include "py/obj.h"
