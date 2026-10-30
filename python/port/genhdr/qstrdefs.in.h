@@ -565,6 +565,16 @@ Q(pop)
 Q(current)
 Q(change)
 
+// Mu Event QSTRs
+Q(Event)
+Q(type)
+Q(data)
+
+// Mu EventBus QSTRs
+Q(EventBus)
+Q(dispatch)
+Q(subscribe)
+
 // utime QSTRs
 Q(localtime)
 Q(mktime)
