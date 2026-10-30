@@ -563,6 +563,7 @@ Q(SceneManager)
 Q(push)
 Q(pop)
 Q(current)
+Q(change)
 
 // utime QSTRs
 Q(localtime)
