@@ -1,9 +1,7 @@
 #include "py/obj.h"
 #include "modmu_event.h"
 
-static const mp_rom_map_elem_t modmu_event_globals_table[] = {
-
-};
+static const mp_rom_map_elem_t modmu_event_globals_table[] = {};
 
 static MP_DEFINE_CONST_DICT(modmu_event_globals, modmu_event_globals_table);
 
