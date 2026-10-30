@@ -182,6 +182,9 @@ port_src += $(addprefix python/port/,\
   mod/mu/keyboard/modmu_keyboard.cpp \
   mod/mu/keyboard/modmu_keyboard_table.c \
   \
+  mod/mu/events/modmu_event.cpp \
+  mod/mu/events/modmu_event_table.c \
+  \
   mphalport.c \
 )
 
