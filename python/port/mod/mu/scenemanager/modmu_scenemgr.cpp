@@ -79,3 +79,15 @@ mp_obj_t modmu_scenemgr_current(
     mp_obj_list_get(thus->stack, &len, &items);
     return (len > 0) ? items[len - 1] : mp_const_none;
 }
+
+mp_obj_t modmu_scenemgr_change(
+    size_t n_args,
+    const mp_obj_t *args
+)
+{
+    while (modmu_scenemgr_current(args[0]) != mp_const_none) {
+        modmu_scenemgr_pop(2, (const mp_obj_t [2]){ args[0], (n_args >= 3) ? args[2] : mp_const_none});
+    }
+    modmu_scenemgr_push(n_args, args);
+    return args[1];
+}
