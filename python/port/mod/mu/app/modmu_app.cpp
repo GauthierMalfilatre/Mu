@@ -1,5 +1,5 @@
-
 extern "C" {
+    #include "mod/mu/keyboard/modmu_keyboard.h"
     #include "helpers.h"
     #include "py/qstr.h"
     #include "modmu_app.h"
@@ -9,6 +9,7 @@ extern "C" {
 }
 
 extern const mp_obj_type_t   modmu_scenemgr_type;
+extern const mp_obj_type_t   modmu_keyboard_type;
 
 /**
  * @brief The App class basicaly
@@ -18,6 +19,7 @@ typedef struct modmu_app_obj_s {
     mp_obj_base_t base;       //!< The base, idk what is that for ...
     bool          is_running; //!< Is the app running
     mp_obj_t      scenemgr;   //!< Scene manager bro
+    mp_obj_t      keyboard;   //!< Keyboard
 
 } modmu_app_obj_t;
 
@@ -33,6 +35,7 @@ mp_obj_t modmu_app_make_new(
     modmu_app_obj_t* thus = mp_obj_malloc(modmu_app_obj_t, type);
     thus->is_running = false;
     thus->scenemgr   = modmu_scenemgr_make_new(&modmu_scenemgr_type, 0, 0, NULL);
+    thus->keyboard   = modmu_keyboard_make_new(&modmu_keyboard_type, 0, 0, NULL);
     return MP_OBJ_FROM_PTR(thus);
 }
 
@@ -41,13 +44,15 @@ void modmu_app_attributes(
     qstr attribute,
     mp_obj_t *dest
 ) {
-    modmu_app_obj_t *app = (modmu_app_obj_t *)MP_OBJ_FROM_PTR(thus_obj);
+    modmu_app_obj_t *app = (modmu_app_obj_t *)MP_OBJ_TO_PTR(thus_obj);
 
     if (dest[0] != MP_OBJ_NULL) return;
 
     if (attribute == MP_QSTR_scenes) {
         dest[0] = app->scenemgr;
-    } else {
+    } else if (attribute == MP_QSTR_keyboard) {
+        dest[0] = app->keyboard;
+    }else {
         dest[1] = MP_OBJ_SENTINEL;
     }
 }
@@ -62,9 +67,8 @@ mp_obj_t modmu_app_run(
 
     thus->is_running = true;
     while (thus->is_running) {
-        if (micropython_port_interrupt_if_needed()) {
-            break;
-        }
+        modmu_keyboard_update(thus->keyboard);
+
         scene = modmu_scenemgr_current(thus->scenemgr);
 
         if (scene == mp_const_none) break;

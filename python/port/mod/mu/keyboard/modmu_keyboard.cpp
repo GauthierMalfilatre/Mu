@@ -30,16 +30,16 @@ mp_obj_t modmu_keyboard_make_new(
     return MP_OBJ_FROM_PTR(thus);
 }
 
-static uint64_t modmu_keyboard_key_to_bit(
-    mp_obj_t key
-)
-{
-    mp_int_t k = mp_obj_get_int(key);
-    if (k < 0 || k > 63) {
-        return 1ULL;
-    }
-    return 1ULL << k;
-}
+// static uint64_t modmu_keyboard_key_to_bit(
+//     mp_obj_t key
+// )
+// {
+//     mp_int_t k = mp_obj_get_int(key);
+//     if (k < 0 || k > 63) {
+//         return 1ULL;
+//     }
+//     return 1ULL << k;
+// }
 
 mp_obj_t modmu_keyboard_release(
     mp_obj_t thus_obj,
@@ -48,7 +48,8 @@ mp_obj_t modmu_keyboard_release(
 {
     modmu_keyboard_obj_t *thus = (modmu_keyboard_obj_t*)MP_OBJ_TO_PTR(thus_obj);
 
-    bool is_release = (~(uint64_t)thus->current_scan & (uint64_t)thus->previous_scan & modmu_keyboard_key_to_bit(key));
+    // bool is_release = (~(uint64_t)thus->current_scan & (uint64_t)thus->previous_scan & modmu_keyboard_key_to_bit(key));
+    bool is_release = !thus->current_scan.keyDown(static_cast<Ion::Keyboard::Key>(mp_obj_get_int(key))) && thus->previous_scan.keyDown(static_cast<Ion::Keyboard::Key>(mp_obj_get_int(key)));
     return is_release ? mp_const_true : mp_const_false;
 }
 
@@ -59,7 +60,8 @@ mp_obj_t modmu_keyboard_press(
 {
     modmu_keyboard_obj_t *thus = (modmu_keyboard_obj_t*)MP_OBJ_TO_PTR(thus_obj);
 
-    bool is_press = ((uint64_t)thus->current_scan & ~(uint64_t)thus->previous_scan & modmu_keyboard_key_to_bit(key));
+    // bool is_press = ((uint64_t)thus->current_scan & ~(uint64_t)thus->previous_scan & modmu_keyboard_key_to_bit(key));
+    bool is_press = thus->current_scan.keyDown(static_cast<Ion::Keyboard::Key>(mp_obj_get_int(key))) && !thus->previous_scan.keyDown(static_cast<Ion::Keyboard::Key>(mp_obj_get_int(key)));
     return is_press ? mp_const_true : mp_const_false;
 }
 
