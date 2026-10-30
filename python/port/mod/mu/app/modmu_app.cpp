@@ -1,7 +1,6 @@
 
-#include "helpers.h"
-#include <cstdio>
 extern "C" {
+    #include "helpers.h"
     #include "py/qstr.h"
     #include "modmu_app.h"
     #include "py/obj.h"
@@ -66,10 +65,7 @@ mp_obj_t modmu_app_run(
         if (micropython_port_interrupt_if_needed()) {
             break;
         }
-
-        printf("run: start\n"); fflush(stdout);
         scene = modmu_scenemgr_current(thus->scenemgr);
-        printf("run: scene=%p\n", (void *)scene); fflush(stdout);
 
         if (scene == mp_const_none) break;
 
