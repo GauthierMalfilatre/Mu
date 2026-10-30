@@ -1,4 +1,3 @@
-#include <cstdint>
 #include <ion.h>
 #include <assert.h>
 #include "apps/apps_container_storage.h"

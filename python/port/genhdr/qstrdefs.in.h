@@ -533,6 +533,37 @@ Q(ht)
 Q(isvisible)
 Q(colormode)
 
+// Mu::KNW QSTRs
+Q(mu)
+
+// Mu keyboard QSTRs
+Q(Keyboard)
+Q(update)
+Q(release)
+Q(press)
+
+// Mu App QSTRs
+Q(App)
+Q(run)
+Q(scenes)
+Q(keyboard)
+Q(events)
+
+// Mu Scene QSTRs
+Q(Scene)
+Q(mark_dirty)
+Q(on_start)
+Q(on_dispose)
+Q(update)
+Q(render)
+Q(mark_clean)
+
+// Mu SceneManager QSTRs
+Q(SceneManager)
+Q(push)
+Q(pop)
+Q(current)
+
 // utime QSTRs
 Q(localtime)
 Q(mktime)
