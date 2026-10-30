@@ -1,6 +1,8 @@
 
-#include "py/qstr.h"
+#include "helpers.h"
+#include <cstdio>
 extern "C" {
+    #include "py/qstr.h"
     #include "modmu_app.h"
     #include "py/obj.h"
     #include "py/runtime.h"
@@ -57,13 +59,20 @@ mp_obj_t modmu_app_run(
 {
     modmu_app_obj_t* thus = (modmu_app_obj_t*)MP_OBJ_TO_PTR(thus_obj);
     mp_obj_t scene;
+    mp_obj_t dest[3];
 
     thus->is_running = true;
     while (thus->is_running) {
-        scene = modmu_scenemgr_current(thus->scenemgr);
-        if (!scene) break;
+        if (micropython_port_interrupt_if_needed()) {
+            break;
+        }
 
-        mp_obj_t dest[3];
+        printf("run: start\n"); fflush(stdout);
+        scene = modmu_scenemgr_current(thus->scenemgr);
+        printf("run: scene=%p\n", (void *)scene); fflush(stdout);
+
+        if (scene == mp_const_none) break;
+
         mp_load_method(scene, MP_QSTR_update, dest);
         dest[2] = thus_obj;
         mp_call_method_n_kw(1, 0, dest);
