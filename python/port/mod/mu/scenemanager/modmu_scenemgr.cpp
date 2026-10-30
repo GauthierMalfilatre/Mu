@@ -58,10 +58,10 @@ mp_obj_t modmu_scenemgr_pop(
 
     mp_obj_t dest[2];
     mp_load_method(thus->stack, MP_QSTR_pop, dest);
-    mp_obj_t scene = mp_call_method_n_kw_var(0, 0, dest);
+    mp_obj_t scene = mp_call_method_n_kw(0, 0, dest);
 
     mp_obj_t dest_[3];
-    mp_load_method(scene, MP_QSTR_on_dispose, dest);
+    mp_load_method(scene, MP_QSTR_on_dispose, dest_);
     dest_[2] = ctx;
     mp_call_method_n_kw(1, 0, dest_);
 
@@ -86,7 +86,7 @@ mp_obj_t modmu_scenemgr_change(
 )
 {
     while (modmu_scenemgr_current(args[0]) != mp_const_none) {
-        modmu_scenemgr_pop(2, (const mp_obj_t [2]){ args[0], (n_args >= 3) ? args[2] : mp_const_none});
+        modmu_scenemgr_pop(n_args, (const mp_obj_t [2]){ args[0], (n_args >= 3) ? args[2] : mp_const_none});
     }
     modmu_scenemgr_push(n_args, args);
     return args[1];
