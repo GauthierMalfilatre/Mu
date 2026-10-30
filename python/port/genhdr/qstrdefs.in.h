@@ -533,20 +533,23 @@ Q(ht)
 Q(isvisible)
 Q(colormode)
 
-// mu QSTRs
+// Mu::KNW QSTRs
 Q(mu)
-Q(mu.keyboard)
-Q(keyboard)
+
+// Mu keyboard QSTRs
+Q(Keyboard)
 Q(update)
 Q(release)
 Q(press)
 
+// Mu App QSTRs
 Q(App)
 Q(run)
 Q(scenes)
 Q(keyboard)
 Q(events)
 
+// Mu Scene QSTRs
 Q(Scene)
 Q(mark_dirty)
 Q(on_start)
@@ -555,6 +558,7 @@ Q(update)
 Q(render)
 Q(mark_clean)
 
+// Mu SceneManager QSTRs
 Q(SceneManager)
 Q(push)
 Q(pop)
