@@ -7,6 +7,7 @@ extern const mp_obj_type_t   modmu_scene_type;
 extern const mp_obj_type_t   modmu_scenemgr_type;
 extern const mp_obj_type_t   modmu_keyboard_type;
 extern const mp_obj_type_t   modmu_event_type;
+extern const mp_obj_type_t   modmu_eventbus_type;
 
 static MP_DEFINE_CONST_FUN_OBJ_0(modmu_key___init___obj, modmu___init__);
 
@@ -19,6 +20,7 @@ static const mp_rom_map_elem_t modmu_module_globals_table[] = {
     {MP_ROM_QSTR(MP_QSTR_SceneManager), MP_ROM_PTR(&modmu_scenemgr_type)},
     {MP_ROM_QSTR(MP_QSTR_Keyboard), MP_ROM_PTR(&modmu_keyboard_type)},
     {MP_ROM_QSTR(MP_QSTR_Event), MP_ROM_PTR(&modmu_event_type)},
+    {MP_ROM_QSTR(MP_QSTR_EventBus), MP_ROM_PTR(&modmu_eventbus_type)},
 };
 
 static MP_DEFINE_CONST_DICT(modmu_module_globals, modmu_module_globals_table);
