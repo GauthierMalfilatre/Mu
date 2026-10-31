@@ -574,6 +574,7 @@ Q(data)
 Q(EventBus)
 Q(dispatch)
 Q(subscribe)
+Q(priority)
 
 // utime QSTRs
 Q(localtime)

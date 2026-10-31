@@ -1,4 +1,5 @@
 extern "C" {
+    #include "py/misc.h"
     #include "py/runtime.h"
     #include "py/obj.h"
     #include "modmu_eventbus.h"
@@ -83,4 +84,44 @@ mp_obj_t modmu_eventbus_dispatch(
         );
     }
     return event;
+}
+
+mp_obj_t modmu_sub_priority(
+    mp_obj_t sub
+)
+{
+    return mp_obj_subscr(sub, MP_OBJ_NEW_SMALL_INT(0), MP_OBJ_SENTINEL);
+}
+
+mp_obj_t modmu_eventbus_subscribe(
+    size_t n_args,
+    const mp_obj_t *pos_args,
+    mp_map_t *kw_args
+)
+{
+    modmu_eventbus_obj_t *thus = (modmu_eventbus_obj_t*)MP_OBJ_TO_PTR(pos_args[0]);
+    mp_obj_t fn = pos_args[1];
+    mp_obj_t names = mp_obj_new_tuple(n_args - 2, pos_args + 2);
+
+    const mp_arg_t allowed[] = {
+        { MP_QSTR_priority, MP_ARG_KW_ONLY | MP_ARG_INT, { .u_int = 0 } },
+    };
+
+    mp_arg_val_t vals[1];
+    mp_arg_parse_all(0, NULL, kw_args, MP_ARRAY_SIZE(allowed), allowed, vals);
+
+    mp_obj_t entry[3] = {
+        MP_OBJ_NEW_SMALL_INT(vals[0].u_int),
+        fn,
+        names
+    };
+    mp_obj_list_append(thus->subs, mp_obj_new_tuple(3, entry));
+
+    mp_obj_t dest[4];
+    mp_load_method(thus->subs, MP_QSTR_sort, dest);
+    dest[2] = MP_OBJ_NEW_QSTR(MP_QSTR_key);
+    dest[3] = MP_OBJ_FROM_PTR(&modmu_sub_priority_obj);
+    mp_call_method_n_kw(0, 1, dest);
+
+    return pos_args[0];
 }
