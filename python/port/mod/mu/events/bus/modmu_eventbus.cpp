@@ -1,7 +1,7 @@
-#include "poincare/left_square_bracket_layout.h"
 extern "C" {
     #include "py/runtime.h"
     #include "py/obj.h"
+    #include "modmu_eventbus.h"
 }
 
 extern mp_obj_type_t modmu_event_type;

@@ -185,6 +185,9 @@ port_src += $(addprefix python/port/,\
   mod/mu/events/modmu_event.cpp \
   mod/mu/events/modmu_event_table.c \
   \
+  mod/mu/events/bus/modmu_eventbus.cpp \
+  mod/mu/events/bus/modmu_eventbus_table.c \
+  \
   mphalport.c \
 )
 
