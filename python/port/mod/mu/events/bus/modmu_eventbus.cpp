@@ -15,7 +15,7 @@ typedef struct modmu_eventbus_obj_s {
 } modmu_eventbus_obj_t;
 
 mp_obj_t modmu_eventbus_make_new(
-    mp_obj_type_t *type,
+    const mp_obj_type_t *type,
     size_t         n_args,
     size_t         n_kwargs,
     const mp_obj_t *args

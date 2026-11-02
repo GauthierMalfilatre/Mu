@@ -1,4 +1,5 @@
 extern "C" {
+    #include "mod/mu/events/bus/modmu_eventbus.h"
     #include "mod/mu/keyboard/modmu_keyboard.h"
     #include "helpers.h"
     #include "py/qstr.h"
@@ -10,6 +11,7 @@ extern "C" {
 
 extern const mp_obj_type_t   modmu_scenemgr_type;
 extern const mp_obj_type_t   modmu_keyboard_type;
+extern const mp_obj_type_t   modmu_eventbus_type;
 
 /**
  * @brief The App class basicaly
@@ -20,6 +22,7 @@ typedef struct modmu_app_obj_s {
     bool          is_running; //!< Is the app running
     mp_obj_t      scenemgr;   //!< Scene manager bro
     mp_obj_t      keyboard;   //!< Keyboard
+    mp_obj_t      events;     //!< Event bus
 
 } modmu_app_obj_t;
 
@@ -36,6 +39,7 @@ mp_obj_t modmu_app_make_new(
     thus->is_running = false;
     thus->scenemgr   = modmu_scenemgr_make_new(&modmu_scenemgr_type, 0, 0, NULL);
     thus->keyboard   = modmu_keyboard_make_new(&modmu_keyboard_type, 0, 0, NULL);
+    thus->events     = modmu_eventbus_make_new(&modmu_eventbus_type, 0, 0, NULL);
     return MP_OBJ_FROM_PTR(thus);
 }
 
@@ -52,7 +56,9 @@ void modmu_app_attributes(
         dest[0] = app->scenemgr;
     } else if (attribute == MP_QSTR_keyboard) {
         dest[0] = app->keyboard;
-    }else {
+    } else if (attribute == MP_QSTR_events) {
+        dest[0] = app->events;
+    } else {
         dest[1] = MP_OBJ_SENTINEL;
     }
 }
