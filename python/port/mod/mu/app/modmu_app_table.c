@@ -14,8 +14,8 @@ MP_DEFINE_CONST_OBJ_TYPE(
     MP_QSTR_App,
     MP_TYPE_FLAG_NONE,
     make_new,
-    modmu_app_make_new,
+    (const void *)modmu_app_make_new,
     attr,
-    modmu_app_attributes,
+    (const void *)modmu_app_attributes,
     locals_dict, &modmu_app_globals
 );
