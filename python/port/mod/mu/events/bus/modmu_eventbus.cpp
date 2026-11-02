@@ -29,23 +29,6 @@ mp_obj_t modmu_eventbus_make_new(
     return MP_OBJ_FROM_PTR(thus);
 }
 
-static bool mp_obj_list_lookup(
-    mp_obj_t list,
-    mp_obj_t what
-)
-{
-    size_t    len;
-    mp_obj_t *items;
-
-    mp_obj_list_get(list, &len, &items);
-    for (size_t i = 0; i < len; ++i) {
-        if (items[i] == what) {
-            return true;
-        }
-    }
-    return false;
-}
-
 mp_obj_t modmu_eventbus_dispatch(
     size_t n_args,
     const mp_obj_t *args,
@@ -74,14 +57,23 @@ mp_obj_t modmu_eventbus_dispatch(
 
     size_t tuple_len;
     mp_obj_t *tuple_items;
+
+    mp_obj_t snap = mp_obj_new_list(len, items);
+    mp_obj_list_get(snap, &len, &items);
     for (size_t i = 0; i < len; ++i) {
         mp_obj_tuple_get(items[i], &tuple_len, &tuple_items);
         if (tuple_len != 3) continue;
-        if (!mp_obj_list_lookup(tuple_items[1], args[1])) continue; 
-        mp_call_function_1(
-            tuple_items[1],
-            event
-        );
+
+        size_t names_len;
+        mp_obj_t *names_items;
+        mp_obj_tuple_get(tuple_items[2], &names_len, &names_items);
+
+        bool match = false;
+        for (size_t j = 0; j < names_len && !match; ++j) {
+            match = mp_obj_equal(names_items[j], args[1]);
+        }
+        if (!match) continue;
+        mp_call_function_1(tuple_items[1], event);
     }
     return event;
 }
