@@ -551,12 +551,13 @@ Q(events)
 
 // Mu Scene QSTRs
 Q(Scene)
+Q(is_dirty)
 Q(mark_dirty)
+Q(mark_clean)
 Q(on_start)
 Q(on_dispose)
 Q(update)
 Q(render)
-Q(mark_clean)
 
 // Mu SceneManager QSTRs
 Q(SceneManager)
