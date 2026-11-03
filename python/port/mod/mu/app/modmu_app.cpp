@@ -1,3 +1,4 @@
+#include "ion/timing.h"
 extern "C" {
     #include "mod/mu/events/bus/modmu_eventbus.h"
     #include "mod/mu/keyboard/modmu_keyboard.h"
@@ -18,11 +19,13 @@ extern const mp_obj_type_t   modmu_eventbus_type;
  */
 typedef struct modmu_app_obj_s {
 
-    mp_obj_base_t base;       //!< The base, idk what is that for ...
-    bool          is_running; //!< Is the app running
-    mp_obj_t      scenemgr;   //!< Scene manager bro
-    mp_obj_t      keyboard;   //!< Keyboard
-    mp_obj_t      events;     //!< Event bus
+    mp_obj_base_t base;                  //!< The base, idk what is that for ...
+    mp_obj_t      scenemgr;              //!< Scene manager bro
+    mp_obj_t      keyboard;              //!< Keyboard
+    mp_obj_t      events;                //!< Event bus
+    bool          is_running = false;    //!< Is the app running
+    int           tickrate   = 30;       //!< The desired tickrate
+    float         frame_time = 1.0 / 30; //!< The tickrate
 
 } modmu_app_obj_t;
 
@@ -63,6 +66,24 @@ void modmu_app_attributes(
     }
 }
 
+mp_obj_t modmu_app_set_tickrate(
+    mp_obj_t thus_obj,
+    mp_obj_t tickrate
+)
+{
+    modmu_app_obj_t *thus = (modmu_app_obj_t*)thus_obj;
+
+    double new_tickrate = mp_obj_get_int(tickrate);
+
+    if (new_tickrate <= 0) {
+        return mp_obj_new_int(thus->tickrate);
+    }
+
+    thus->tickrate   = new_tickrate;
+    thus->frame_time = 1.0 / new_tickrate;
+    return mp_obj_new_int(thus->tickrate);
+}
+
 mp_obj_t modmu_app_run(
     mp_obj_t thus_obj
 )
@@ -70,9 +91,12 @@ mp_obj_t modmu_app_run(
     modmu_app_obj_t* thus = (modmu_app_obj_t*)MP_OBJ_TO_PTR(thus_obj);
     mp_obj_t scene;
     mp_obj_t dest[3];
+    double ts;
 
     thus->is_running = true;
     while (thus->is_running) {
+        ts = Ion::Timing::millis() / 1000.0;
+
         modmu_keyboard_update(thus->keyboard);
 
         scene = modmu_scenemgr_current(thus->scenemgr);
@@ -85,7 +109,12 @@ mp_obj_t modmu_app_run(
 
         mp_load_method(scene, MP_QSTR_render, dest);
         mp_call_method_n_kw(0, 0, dest);
+
+        double elapsed = Ion::Timing::millis() - ts;
+        double waiting = thus->frame_time - elapsed;
+        if (waiting > 0) {
+            micropython_port_interruptible_msleep(1000 * waiting);
+        }
     }
-    thus->is_running = false;
     return mp_const_none;
 }
