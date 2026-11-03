@@ -2,9 +2,11 @@
 #include "py/obj.h"
 
 static MP_DEFINE_CONST_FUN_OBJ_1(modmu_app_run_obj, modmu_app_run);
+static MP_DEFINE_CONST_FUN_OBJ_2(modmu_app_set_tickrate_obj, modmu_app_set_tickrate);
 
 static const mp_rom_map_elem_t modmu_app_globals_table[] = {
     {MP_ROM_QSTR(MP_QSTR_run), MP_ROM_PTR(&modmu_app_run_obj)},
+    {MP_ROM_QSTR(MP_QSTR_set_tickrate), MP_ROM_PTR(&modmu_app_set_tickrate_obj)}
 };
 
 static MP_DEFINE_CONST_DICT(modmu_app_globals, modmu_app_globals_table);

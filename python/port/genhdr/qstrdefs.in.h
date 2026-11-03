@@ -548,6 +548,7 @@ Q(run)
 Q(scenes)
 Q(keyboard)
 Q(events)
+Q(set_tickrate)
 
 // Mu Scene QSTRs
 Q(Scene)
