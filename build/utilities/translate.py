@@ -4,15 +4,12 @@
 import os
 import re
 import sys
+import json
 import argparse
+import urllib.error
+import urllib.parse
+import urllib.request
 from typing import Dict, List
-# Deep translator import
-try:
-    from deep_translator import GoogleTranslator
-except ModuleNotFoundError:
-    print('Module deep_translator not found. Please install it with ',
-          '"pip3 install deep_translator"')
-    sys.exit(1)
 
 
 # Initialize the parser
@@ -54,14 +51,25 @@ def translate(text: str, output_language: str, input_language: str = 'auto')\
         str: The translated text
 
     """
-    # Ensure of the text exists (not empty)
     if not text:
         return ""
-    # Initialize the translator
-    translator = GoogleTranslator(source=input_language,
-                                  target=output_language)
-    # Translate and return the translated text
-    return translator.translate(text)
+    if input_language == 'auto':
+        input_language = 'en'
+    # 5000 tokens par jour
+    query = urllib.parse.urlencode({'q': text,
+                                    'langpair': f'{input_language}|'
+                                                f'{output_language}'})
+    try:
+        with urllib.request.urlopen('https://api.mymemory.translated.net/'
+                                    f'get?{query}', timeout=20) as response:
+            data = json.load(response)
+    except urllib.error.URLError as error:
+        print(f'Translation request failed: {error}')
+        sys.exit(1)
+    if data.get('responseStatus') != 200:
+        print(f"Translation failed: {data.get('responseDetails')}")
+        sys.exit(1)
+    return data['responseData']['translatedText']
 
 
 def get_all_files_in_directory(directory: str) -> List[str]:
