@@ -1,5 +1,7 @@
 #include "python_toolbox.h"
 #include "../shared/toolbox_helpers.h"
+#include "apps/i18n.h"
+#include "escher/toolbox_message_tree.h"
 #include <assert.h>
 extern "C" {
 #include <string.h>
@@ -484,6 +486,10 @@ const ToolboxMessageTree SysModuleChildren[] = {
 };
 #endif
 
+const ToolboxMessageTree MuModuleChildren[] = {
+  ToolboxMessageTree::Leaf(I18n::Message::PythonCommandImportMu, I18n::Message::PythonImportMu, false),
+};
+
 const ToolboxMessageTree modulesChildren[] = {
   ToolboxMessageTree::Node(I18n::Message::MathModule, MathModuleChildren),
   ToolboxMessageTree::Node(I18n::Message::CmathModule, CMathModuleChildren),
@@ -491,6 +497,7 @@ const ToolboxMessageTree modulesChildren[] = {
 #if defined(INCLUDE_ULAB)
   ToolboxMessageTree::Node(I18n::Message::UlabModule, UlabModuleChildren),
 #endif
+  ToolboxMessageTree::Node(I18n::Message::MuModule, MuModuleChildren),
   ToolboxMessageTree::Node(I18n::Message::TurtleModule, TurtleModuleChildren),
   ToolboxMessageTree::Node(I18n::Message::RandomModule, RandomModuleChildren),
   ToolboxMessageTree::Node(I18n::Message::KandinskyModule, KandinskyModuleChildren),
