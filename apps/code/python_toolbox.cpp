@@ -486,8 +486,13 @@ const ToolboxMessageTree SysModuleChildren[] = {
 };
 #endif
 
+const ToolboxMessageTree MuAppModuleChildren[] = {
+  ToolboxMessageTree::Leaf(I18n::Message::PythonCommandApp, I18n::Message::PythonApp, false),
+};
+
 const ToolboxMessageTree MuModuleChildren[] = {
   ToolboxMessageTree::Leaf(I18n::Message::PythonCommandImportMu, I18n::Message::PythonImportMu, false),
+  ToolboxMessageTree::Node(I18n::Message::MuAppModule, MuAppModuleChildren),
 };
 
 const ToolboxMessageTree modulesChildren[] = {
