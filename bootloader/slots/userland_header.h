@@ -1,7 +1,6 @@
 #ifndef BOOTLOADER_SLOTS_USERLAND_HEADER_H
 #define BOOTLOADER_SLOTS_USERLAND_HEADER_H
 
-#include <cstdint>
 #include <stdint.h>
 #include <stdbool.h>
 #include <stddef.h>
