@@ -2,9 +2,9 @@
 
 <p align="center">
   <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="cc by-nc-sa 4.0" src="https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-525252.svg?labelColor=292929&logo=creative%20commons&style=for-the-badge" /></a>
-  <a href="https://github.com/UpsilonNumworks/Upsilon/issues"><img alt="Issues" src="https://img.shields.io/github/issues/UpsilonNumworks/Upsilon.svg?labelColor=292929&logo=git&style=for-the-badge" /></a>
+  <a href="https://github.com/GauthierMalfilatre/Mu/issues"><img alt="Issues" src="https://img.shields.io/github/issues/GauthierMalfilatre/Mu.svg?labelColor=292929&logo=git&style=for-the-badge" /></a>
   <br/>
-  <a href="https://discord.gg/sbGvhWETAd"><img alt="Discord" src="https://img.shields.io/discord/663420259851567114?color=blue&labelColor=292929&label=chat%20-%20discord&logo=discord&style=for-the-badge" /></a>
+  <a href="https://discord.gg/ABWn3GhVb"><img alt="Discord" src="https://img.shields.io/discord/1564006769267843342?color=blue&labelColor=292929&label=chat%20-%20discord&logo=discord&style=for-the-badge" /></a>
 </p>
 
 > Don't understand French ? Speak English ? here's the [english README](./README.md) !
@@ -258,9 +258,9 @@ Vous pouvez aller à l'étape 2.
 Le code source est disponible dans une repository git. Récupérez-le de cette manière :
 
 ```bash
-git clone --recursive https://github.com/UpsilonNumworks/Upsilon.git
-cd Upsilon
-git checkout upsilon-dev
+git clone --recursive https://github.com/GauthierMalfilatre/Mu.git
+cd Mu
+git checkout mu-dev
 ```
 
 <br>
@@ -445,8 +445,8 @@ Le fichier compilé nommé `epsilon.apk` sera celui à installer sur le téléph
 Il vous faut devkitPro et devkitARM installés et dans votre path (les instructions sont [ici](https://devkitpro.org/wiki/Getting_Started))
 
 ```bash
-git clone --recursive https://github.com/UpsilonNumworks/Upsilon.git
-cd Upsilon
+git clone --recursive https://github.com/GauthierMalfilatre/Mu.git
+cd Mu
 git checkout --recursive upsilon-dev
 make PLATFORM=simulator TARGET=3ds -j
 ```
@@ -465,9 +465,9 @@ Important: n'oubliez pas l'argument `--recursive` parce qu'Upsilon dépend de su
 Aussi, vous pouvez changer le nombre de processus de compilation en parallèles en changeant le nombre après l'argument `-j`.
 N'oubliez pas de mettre votre nom à la place `{Votre nom, maximum 15 caractères}`. Si vous n'en voulez pas, enlevez l'argument `OMEGA_USERNAME`.
 
-Si vous avez besoin d'aide, n'hésitez pas à rejoindre notre serveur Discord : <https://discord.gg/Q9buEMduXG>
+Si vous avez besoin d'aide, n'hésitez pas à rejoindre notre serveur Discord : <https://discord.gg/ABWn3GhVb>
 
-<a href="https://discord.gg/Q9buEMduXG"><p align="center"><img alt="Omega Banner Discord" src="https://user-images.githubusercontent.com/12123721/86287349-54ef5800-bbe8-11ea-80c1-34eb1f93eebd.png" /></p></a>
+<a href="https://discord.gg/ABWn3GhVb"><p align="center"><img alt="Omega Banner Discord" src="https://user-images.githubusercontent.com/12123721/86287349-54ef5800-bbe8-11ea-80c1-34eb1f93eebd.png" /></p></a>
 ---
 
 ## Liens utiles
