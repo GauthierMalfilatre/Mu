@@ -488,11 +488,59 @@ const ToolboxMessageTree SysModuleChildren[] = {
 
 const ToolboxMessageTree MuAppModuleChildren[] = {
   ToolboxMessageTree::Leaf(I18n::Message::PythonCommandApp, I18n::Message::PythonApp, false),
+  ToolboxMessageTree::Leaf(I18n::Message::PythonCommandMuAppRun, I18n::Message::PythonMuAppRun, false, I18n::Message::PythonCommandMuAppRunWithoutArg),
+  ToolboxMessageTree::Leaf(I18n::Message::PythonCommandMuAppSetTickrate, I18n::Message::PythonMuAppSetTickrate, false, I18n::Message::PythonCommandMuAppSetTickrateWithoutArg),
+  ToolboxMessageTree::Leaf(I18n::Message::PythonCommandMuAppScenes, I18n::Message::PythonMuAppScenes, false, I18n::Message::PythonCommandMuAppScenesWithoutArg),
+  ToolboxMessageTree::Leaf(I18n::Message::PythonCommandMuAppKeyboard, I18n::Message::PythonMuAppKeyboard, false, I18n::Message::PythonCommandMuAppKeyboardWithoutArg),
+  ToolboxMessageTree::Leaf(I18n::Message::PythonCommandMuAppEvents, I18n::Message::PythonMuAppEvents, false, I18n::Message::PythonCommandMuAppEventsWithoutArg),
+};
+
+const ToolboxMessageTree MuSceneModuleChildren[] = {
+  ToolboxMessageTree::Leaf(I18n::Message::PythonCommandMuScene, I18n::Message::PythonMuScene, false),
+  ToolboxMessageTree::Leaf(I18n::Message::PythonCommandMuSceneMarkDirty, I18n::Message::PythonMuSceneMarkDirty, false, I18n::Message::PythonCommandMuSceneMarkDirtyWithoutArg),
+  ToolboxMessageTree::Leaf(I18n::Message::PythonCommandMuSceneMarkClean, I18n::Message::PythonMuSceneMarkClean, false, I18n::Message::PythonCommandMuSceneMarkCleanWithoutArg),
+  ToolboxMessageTree::Leaf(I18n::Message::PythonCommandMuSceneIsDirty, I18n::Message::PythonMuSceneIsDirty, false, I18n::Message::PythonCommandMuSceneIsDirtyWithoutArg),
+  ToolboxMessageTree::Leaf(I18n::Message::PythonCommandMuSceneOnStart, I18n::Message::PythonMuSceneOnStart, false, I18n::Message::PythonCommandMuSceneOnStartWithoutArg),
+  ToolboxMessageTree::Leaf(I18n::Message::PythonCommandMuSceneOnDispose, I18n::Message::PythonMuSceneOnDispose, false, I18n::Message::PythonCommandMuSceneOnDisposeWithoutArg),
+  ToolboxMessageTree::Leaf(I18n::Message::PythonCommandMuSceneUpdate, I18n::Message::PythonMuSceneUpdate, false, I18n::Message::PythonCommandMuSceneUpdateWithoutArg),
+  ToolboxMessageTree::Leaf(I18n::Message::PythonCommandMuSceneRender, I18n::Message::PythonMuSceneRender, false, I18n::Message::PythonCommandMuSceneRenderWithoutArg),
+};
+
+const ToolboxMessageTree MuEventModuleChildren[] = {
+  ToolboxMessageTree::Leaf(I18n::Message::PythonCommandMuEvent, I18n::Message::PythonMuEvent, false),
+  ToolboxMessageTree::Leaf(I18n::Message::PythonCommandMuEventType, I18n::Message::PythonMuEventType, false, I18n::Message::PythonCommandMuEventTypeWithoutArg),
+  ToolboxMessageTree::Leaf(I18n::Message::PythonCommandMuEventData, I18n::Message::PythonMuEventData, false, I18n::Message::PythonCommandMuEventDataWithoutArg),
+};
+
+const ToolboxMessageTree MuEventBusModuleChildren[] = {
+  ToolboxMessageTree::Leaf(I18n::Message::PythonCommandMuEventBus, I18n::Message::PythonMuEventBus, false),
+  ToolboxMessageTree::Leaf(I18n::Message::PythonCommandMuEventBusSubscribe, I18n::Message::PythonMuEventBusSubscribe, false, I18n::Message::PythonCommandMuEventBusSubscribeWithoutArg),
+  ToolboxMessageTree::Leaf(I18n::Message::PythonCommandMuEventBusDispatch, I18n::Message::PythonMuEventBusDispatch, false, I18n::Message::PythonCommandMuEventBusDispatchWithoutArg),
+};
+
+const ToolboxMessageTree MuSceneManagerModuleChildren[] = {
+  ToolboxMessageTree::Leaf(I18n::Message::PythonCommandMuSceneManager, I18n::Message::PythonMuSceneManager, false),
+  ToolboxMessageTree::Leaf(I18n::Message::PythonCommandMuSceneManagerPush, I18n::Message::PythonMuSceneManagerPush, false, I18n::Message::PythonCommandMuSceneManagerPushWithoutArg),
+  ToolboxMessageTree::Leaf(I18n::Message::PythonCommandMuSceneManagerPop, I18n::Message::PythonMuSceneManagerPop, false, I18n::Message::PythonCommandMuSceneManagerPopWithoutArg),
+  ToolboxMessageTree::Leaf(I18n::Message::PythonCommandMuSceneManagerCurrent, I18n::Message::PythonMuSceneManagerCurrent, false, I18n::Message::PythonCommandMuSceneManagerCurrentWithoutArg),
+  ToolboxMessageTree::Leaf(I18n::Message::PythonCommandMuSceneManagerChange, I18n::Message::PythonMuSceneManagerChange, false, I18n::Message::PythonCommandMuSceneManagerChangeWithoutArg),
+};
+
+const ToolboxMessageTree MuKeyboardModuleChildren[] = {
+  ToolboxMessageTree::Leaf(I18n::Message::PythonCommandMuKeyboard, I18n::Message::PythonMuKeyboard, false),
+  ToolboxMessageTree::Leaf(I18n::Message::PythonCommandMuKeyboardPress, I18n::Message::PythonMuKeyboardPress, false, I18n::Message::PythonCommandMuKeyboardPressWithoutArg),
+  ToolboxMessageTree::Leaf(I18n::Message::PythonCommandMuKeyboardRelease, I18n::Message::PythonMuKeyboardRelease, false, I18n::Message::PythonCommandMuKeyboardReleaseWithoutArg),
+  ToolboxMessageTree::Leaf(I18n::Message::PythonCommandMuKeyboardUpdate, I18n::Message::PythonMuKeyboardUpdate, false, I18n::Message::PythonCommandMuKeyboardUpdateWithoutArg),
 };
 
 const ToolboxMessageTree MuModuleChildren[] = {
   ToolboxMessageTree::Leaf(I18n::Message::PythonCommandImportMu, I18n::Message::PythonImportMu, false),
   ToolboxMessageTree::Node(I18n::Message::MuAppModule, MuAppModuleChildren),
+  ToolboxMessageTree::Node(I18n::Message::MuSceneModule, MuSceneModuleChildren),
+  ToolboxMessageTree::Node(I18n::Message::MuEventModule, MuEventModuleChildren),
+  ToolboxMessageTree::Node(I18n::Message::MuEventBusModule, MuEventBusModuleChildren),
+  ToolboxMessageTree::Node(I18n::Message::MuSceneManagerModule, MuSceneManagerModuleChildren),
+  ToolboxMessageTree::Node(I18n::Message::MuKeyboardModule, MuKeyboardModuleChildren),
 };
 
 const ToolboxMessageTree modulesChildren[] = {
