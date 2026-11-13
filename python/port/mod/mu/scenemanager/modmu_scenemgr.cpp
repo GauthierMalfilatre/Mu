@@ -86,7 +86,8 @@ mp_obj_t modmu_scenemgr_change(
 )
 {
     while (modmu_scenemgr_current(args[0]) != mp_const_none) {
-        modmu_scenemgr_pop(n_args, (const mp_obj_t [2]){ args[0], (n_args >= 3) ? args[2] : mp_const_none});
+        const mp_obj_t tmp[2] = {args[0], (n_args >= 3) ? args[2] : mp_const_none};
+        modmu_scenemgr_pop(n_args, tmp);
     }
     modmu_scenemgr_push(n_args, args);
     return args[1];
